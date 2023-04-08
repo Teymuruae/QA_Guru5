@@ -1,0 +1,31 @@
+plugins{
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+compileTestJava{
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    testImplementation (
+            "com.codeborne:selenide:6.13.0",
+            "org.junit.jupiter:junit-jupiter:5.9.2"
+
+    )
+}
+
+test{
+    useJUnitPlatform() // для 5 Junit и UseJunit() для 4 версии
+}
+
+compileJava.options.encoding = 'UTF-8' // устанавливает кодировку для компилируемого кода
+javadoc.options.encoding = 'UTF-8' // устанавливает кодировку для генерируемой документации
+compileTestJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
